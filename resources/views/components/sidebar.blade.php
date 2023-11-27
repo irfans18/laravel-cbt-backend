@@ -30,14 +30,17 @@
                </li>
             </ul>
          </li>
-         {{-- <li class="nav-item dropdown ">
+         <li class="nav-item dropdown ">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Questions</span></a>
             <ul class="dropdown-menu">
                <li >
-                  <a class="nav-link" href="{{ route('questions.index') }}">All Questions</a>
+                  <a class="nav-link" href="{{ route('question.index') }}">All Questions</a>
+               </li>
+               <li >
+                  <a class="nav-link" href="{{ route('question.create') }}">Create Questions</a>
                </li>
             </ul>
-         </li> --}}
+         </li>
       </ul>
 
    </aside>
