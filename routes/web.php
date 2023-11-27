@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function(){
        return view('pages.dashboard');
    })->name('home');
    Route::resource('user', UserController::class);
+   // Route::resource('question', UserController::class);
 });
 
 // Route::get('/', function () {

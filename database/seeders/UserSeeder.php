@@ -15,14 +15,19 @@ class UserSeeder extends Seeder
    {
 
       \App\Models\User::factory(10)->create();
+      \App\Models\User::factory(10)->create(
+         [
+            'roles' => 'STAFF',
+
+         ]
+      );
 
       \App\Models\User::factory()->create([
-          'name' => 'Irfams',
-          'email' => 'irfams@fic10.com',
-          'password' => Hash::make('123qwe'),
-          'roles' => 'ADMIN',
-          'phone' => '08798273892',
+         'name' => 'Irfams',
+         'email' => 'irfams@fic10.com',
+         'password' => Hash::make('123qwe'),
+         'roles' => 'ADMIN',
+         'phone' => '08798273892',
       ]);
-
    }
 }
