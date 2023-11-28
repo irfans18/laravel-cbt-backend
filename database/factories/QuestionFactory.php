@@ -18,7 +18,7 @@ class QuestionFactory extends Factory
    {
       return [
          'question' => fake()->text(),
-         'category' => fake()->randomElement(['Numeric', 'Verbal', 'Logika']),
+         'category' => fake()->randomElement(['Numeric', 'Verbal', 'Logic']),
          'option_a' => fake()->word(),
          'option_b' => fake()->word(),
          'option_c' => fake()->word(),
