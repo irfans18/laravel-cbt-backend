@@ -35,35 +35,32 @@ class AuthController extends Controller
       ]);
    }
 
-   /**
-    * Store a newly created resource in storage.
-    */
-   public function store(Request $request)
+   public function login(Request $request)
    {
-      //
+      $validatedData = $request->validate([
+         'email' => 'required|email',
+         'password' => 'required',
+      ]);
+
+      $user = User::where('email', $validatedData['email'])->first();
+      if (!$user) {
+         return response()->json(['message' => 'User not found'], 401);
+      }
+      if (!Hash::check($validatedData['password'], $user->password)) {
+         return response()->json(['message' => 'Invalid credentials'], 401);
+      }
+
+      $token = $user->createToken('auth_token')->plainTextToken;
+      return response()->json([
+         'access_token' => $token,
+         'user' => UserResource::make($user),
+      ]);
    }
 
-   /**
-    * Display the specified resource.
-    */
-   public function show(string $id)
+   public function logout(Request $request)
    {
-      //
-   }
+      $request->user()->currentAccessToken()->delete();
 
-   /**
-    * Update the specified resource in storage.
-    */
-   public function update(Request $request, string $id)
-   {
-      //
-   }
-
-   /**
-    * Remove the specified resource from storage.
-    */
-   public function destroy(string $id)
-   {
-      //
+      return response()->json(['message' => 'Logout success']);
    }
 }
