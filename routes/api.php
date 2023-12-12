@@ -30,3 +30,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::post('/create-exam', [ExamController::class, 'createExam'])->middleware('auth:sanctum');
 
 Route::get('/get-exam-question', [ExamController::class, 'getExamQuestListByCategory'])->middleware('auth:sanctum');
+
+Route::post('/answer', [ExamController::class, 'getAnswer'])->middleware('auth:sanctum');
+
+// Route::apiResource('/contents', \App\Http\Controllers\Api\ContentController::class)->middleware('auth:sanctum');
+
+// api for learning material
+// Route::apiResource('/courseware', \App\Http\Controllers\Api\ContentController::class)->middleware('auth:sanctum');
