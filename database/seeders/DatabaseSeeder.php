@@ -3,9 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
 use Database\Seeders\ExamSeeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\CourseSeeder;
+use Database\Seeders\ContentSeeder;
 use Database\Seeders\QuestionSeeder;
 use Database\Seeders\ExamQuestListSeeder;
 
@@ -24,10 +27,12 @@ class DatabaseSeeder extends Seeder
       // ]);
 
       $this->call([
-         UserSeeder::class, 
+         UserSeeder::class,
          QuestionSeeder::class,
          ExamSeeder::class,
          ExamQuestListSeeder::class,
+         ContentSeeder::class,
+         CourseSeeder::class,
       ]);
    }
 }

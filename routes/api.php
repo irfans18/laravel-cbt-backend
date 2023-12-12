@@ -33,7 +33,7 @@ Route::get('/get-exam-question', [ExamController::class, 'getExamQuestListByCate
 
 Route::post('/answer', [ExamController::class, 'getAnswer'])->middleware('auth:sanctum');
 
-// Route::apiResource('/contents', \App\Http\Controllers\Api\ContentController::class)->middleware('auth:sanctum');
+Route::apiResource('/contents', \App\Http\Controllers\Api\ContentController::class)->middleware('auth:sanctum');
 
 // api for learning material
-// Route::apiResource('/courseware', \App\Http\Controllers\Api\ContentController::class)->middleware('auth:sanctum');
+Route::apiResource('/courses', \App\Http\Controllers\Api\CourseController::class)->middleware('auth:sanctum');
