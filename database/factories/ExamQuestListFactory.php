@@ -17,7 +17,7 @@ class ExamQuestListFactory extends Factory
    public function definition(): array
    {
       return [
-         'exam_id' => fake()->numberBetween(1, 10),
+         'exam_id' => fake()->numberBetween(1, 21),
          'question_id' => fake()->numberBetween(1, 10),
          'is_correct' => fake()->boolean(),
       ];
