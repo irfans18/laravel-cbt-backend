@@ -7,11 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class ExamQuestList extends Model
 {
-   use HasFactory;
+    use HasFactory;
 
-   protected $fillable = [
-      'exam_id',
-      'question_id',
-      'is_correct',
-   ];
+    protected $fillable = [
+        'exam_id',
+        'question_id',
+        'is_correct',
+    ];
+
+    public function exam()
+    {
+        return $this->belongsTo(Exam::class);
+    }
+
+    public function question()
+    {
+        return $this->belongsTo(Question::class);
+    }
 }

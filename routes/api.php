@@ -37,3 +37,5 @@ Route::apiResource('/contents', \App\Http\Controllers\Api\ContentController::cla
 
 // api for learning material
 Route::apiResource('/courses', \App\Http\Controllers\Api\CourseController::class)->middleware('auth:sanctum');
+
+Route::get('/get-score', [ExamController::class, 'countScore'])->middleware('auth:sanctum');
