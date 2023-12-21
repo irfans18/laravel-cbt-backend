@@ -65,16 +65,16 @@ class ExamController extends Controller
         $question = Question::whereIn('id', $examQuestListId)->where('category', $request->category)->get();
 
         // timer by category
-        $timer_field = 'timer_numeric';
+        $timer = $exam->timer_verbal;
         if ($request->category == 'Verbal') {
-            $timer_field = 'timer_verbal';
+            $timer = $exam->timer_verbal;
         } elseif ($request->category == 'Logic') {
-            $timer_field = 'timer_logic';
+            $timer = $exam->timer_logic;
         }
 
         return response()->json([
             'message' => 'Got questions successfully',
-            'timer' => $timer_field,
+            'timer' => $timer,
             'data' => QuestionResource::collection($question),
         ]);
     }
