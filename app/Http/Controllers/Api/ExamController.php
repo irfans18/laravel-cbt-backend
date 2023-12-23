@@ -82,8 +82,8 @@ class ExamController extends Controller
     public function getAnswer(Request $request)
     {
         $validatedData = $request->validate([
-            'soal_id' => 'required',
-            'jawaban' => 'required'
+            'question_id' => 'required',
+            'answer' => 'required'
         ]);
 
         $exam = Exam::where('user_id', $request->user()->id)->first();
@@ -95,7 +95,7 @@ class ExamController extends Controller
         }
 
         $examQuestion = ExamQuestList::where('exam_id', $exam->id)->where('question_id', $validatedData['question_id'])->first();
-        $question = Question::where('id', $validatedData['soal_id'])->first();
+        $question = Question::where('id', $validatedData['question_id'])->first();
 
         if ($question->key == $validatedData['answer']) {
             $examQuestion->update([
